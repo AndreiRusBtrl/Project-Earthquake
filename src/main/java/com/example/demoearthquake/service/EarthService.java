@@ -38,7 +38,7 @@ public class EarthService {
         earthquakeRepo.save(earthQuakeEntity);
     }
 
-    public void updateEntity(EarthquakeEntity earthquakeEntityToUpdate, Integer id) {
+    public void updateEntity(EarthquakeEntity earthquakeEntityToUpdate, int id) {
         Optional<EarthquakeEntity> earthQuakeEntity = earthquakeRepo.findById(id);
         if (earthQuakeEntity.isPresent()) {
             if (earthquakeEntityToUpdate.getOccurred_on() != null) {

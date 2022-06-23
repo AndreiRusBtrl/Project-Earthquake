@@ -43,12 +43,12 @@ public class EarthController {
     }
 
     @PutMapping("/update")
-    public void updateEarthquake(@RequestBody EarthquakeEntity earthQuake, Integer id){
+    public void updateEarthquake(@RequestBody EarthquakeEntity earthQuake, @RequestParam int id){
         earthService.updateEntity(earthQuake, id);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteById(@PathVariable Integer id){
+    @DeleteMapping("/delete")
+    public void deleteById(@RequestParam int id){
         earthService.deleteEarthquakeById(id);
     }
 

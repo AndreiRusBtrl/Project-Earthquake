@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "earth")
+@Table(name = "EARTH")
 @RequiredArgsConstructor
 public class EarthquakeEntity {
 
