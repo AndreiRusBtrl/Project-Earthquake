@@ -6,6 +6,7 @@ import com.example.demoearthquake.service.EarthService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -13,9 +14,7 @@ import java.util.List;
 @RequestMapping("/db/api/v1")
 public class EarthController {
 
-
     private final EarthService earthService;
-
 
     @GetMapping("/get_all_earthquakes")
     public List<EarthquakeEntity> getAllEarthQuakeEntities(){
@@ -42,18 +41,14 @@ public class EarthController {
         earthService.addEntity(earthQuake);
     }
 
-    @PutMapping("/update")
-    public void updateEarthquake(@RequestBody EarthquakeEntity earthQuake, @RequestParam int id){
+    @PutMapping("/update/{id}")
+    public void updateEarthquake(@RequestBody EarthquakeEntity earthQuake, @PathVariable BigInteger id){
         earthService.updateEntity(earthQuake, id);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteById(@RequestParam int id){
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable BigInteger id){
         earthService.deleteEarthquakeById(id);
     }
-
-
-
-
 
 }

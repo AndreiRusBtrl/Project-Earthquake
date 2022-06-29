@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,7 +17,7 @@ public class EarthquakeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "earthquake_id")
-    private Integer id;
+    private BigInteger id;
 
     private LocalDateTime occurred_on;
     private Double latitude;

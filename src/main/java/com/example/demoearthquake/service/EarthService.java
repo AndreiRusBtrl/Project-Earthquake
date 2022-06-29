@@ -6,6 +6,7 @@ import com.example.demoearthquake.entity.EarthquakeRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +39,7 @@ public class EarthService {
         earthquakeRepo.save(earthQuakeEntity);
     }
 
-    public void updateEntity(EarthquakeEntity earthquakeEntityToUpdate, int id) {
+    public void updateEntity(EarthquakeEntity earthquakeEntityToUpdate, BigInteger id) {
         Optional<EarthquakeEntity> earthQuakeEntity = earthquakeRepo.findById(id);
         if (earthQuakeEntity.isPresent()) {
             if (earthquakeEntityToUpdate.getOccurred_on() != null) {
@@ -72,7 +73,7 @@ public class EarthService {
         }
     }
 
-    public void deleteEarthquakeById(Integer id) {
+    public void deleteEarthquakeById(BigInteger id) {
         Optional<EarthquakeEntity> person = earthquakeRepo.findById(id);
         person.ifPresent(earthquakeRepo::delete);
     }
